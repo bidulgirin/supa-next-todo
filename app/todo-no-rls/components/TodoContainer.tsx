@@ -1,15 +1,13 @@
 "use client";
-import { getTodos, getTodosById, todosSearch } from "@/apis/todos-no-rls";
 import React, { useEffect } from "react";
+import useTodosController from "../hooks/useTodosController";
 
 const TodoContainer = () => {
-    useEffect(() => {
-        //getTodos();
-        //getTodosById(2);
-        //todosSearch("컨텐츠");
-    }),
-        [];
-    return <div>{}</div>;
+    const { loading, todos } = useTodosController();
+
+    console.log(">>>>loading", loading);
+    console.log(">>>>todos", todos);
+    return <div></div>;
 };
 
 export default TodoContainer;
