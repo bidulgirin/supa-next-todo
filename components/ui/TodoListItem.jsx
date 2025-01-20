@@ -54,6 +54,9 @@ const TodoListItem = ({
                     <input
                         className="flex-1 text-[18px]"
                         value={userInput}
+                        onKeyDown={(e) => {
+                            if (e.key == "Enter") onFinishEdit();
+                        }}
                         onChange={(e) => {
                             setUserInput(e.target.value);
                         }}></input>

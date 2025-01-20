@@ -28,13 +28,13 @@ export const getTodosById = async (id: number) => {
     return result.data;
 };
 // todolist 서치해서 가져오기
-export const todosSearch = async (term: string) => {
+export const todosSearch = async (terms: string) => {
     const supabase = createSupabaseBrowserClient();
     const result = await supabase
         .from("todos_no_rls")
         .select("*")
         .is("deleted_at", null)
-        .ilike("contents", `%${term}%`)
+        .ilike("content", `%${terms}%`)
         .order("id", { ascending: false })
         .limit(500);
     return result.data;
