@@ -1,3 +1,4 @@
+// 브라우저 단 클라이언트 ( supabase에서 db 끌어오기 )
 import { createBrowserClient } from "@supabase/ssr";
 import { Database } from "@/types/supabase";
 
