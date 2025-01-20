@@ -37,6 +37,7 @@ export const todosSearch = async (term: string) => {
         .ilike("contents", `%${term}%`)
         .order("id", { ascending: false })
         .limit(500);
+    return result.data;
 };
 
 // createToDos
