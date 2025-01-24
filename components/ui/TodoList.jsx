@@ -95,7 +95,7 @@ const Todolist = ({
                     </article>
                 )}
 
-                <div className="h-[2px] bg-black w-full mt-4"></div>
+                <div className="h-[2px] bg-black w-full mt-4 mb-4"></div>
 
                 {todoListData?.length >= 1 ? (
                     <ul className="flex flex-col gap-6">

@@ -1,0 +1,19 @@
+// 서버 사이드 용
+import { NextResponse } from "next/server";
+import { createServerSideClient } from "@/lib/supabase";
+
+// todo 가져오기
+export const GET = async () => {
+    const supabase = await createServerSideClient();
+
+    const result = await supabase
+        .from("todos_no_rls")
+        .select("*")
+        .is("deleted_at", null)
+        .order("id", {
+            ascending: false,
+        });
+    console.log("GET result", result);
+
+    return NextResponse.json({ ...result });
+};
