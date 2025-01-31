@@ -1,3 +1,4 @@
+// ServerActions + CSR
 "use client";
 import { pingAction } from "@/actions/ping/ping.action";
 import { getTodoAction } from "@/actions/todo/todo.action";
@@ -20,3 +21,10 @@ const ClientComponentText = () => {
 };
 
 export default ClientComponentText;
+
+/**
+ * 1. ServerActions + RouterHandler
+ * 2. ServerActions + SSR
+ * 3. ServerActions + CSR
+ * 이 조합으로 ServerActions 를 사용할수있습니다~
+ */

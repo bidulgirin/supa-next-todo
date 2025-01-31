@@ -1,4 +1,4 @@
-// 서버 사이드 용
+// 서버 사이드 용 ServerActions + RouterHandler
 import { NextResponse } from "next/server";
 import { createServerSideClient } from "@/lib/supabase";
 import { getTodoAction } from "@/actions/todo/todo.action";
@@ -6,7 +6,6 @@ import { getTodoAction } from "@/actions/todo/todo.action";
 // todo 가져오기
 export const GET = async () => {
     // const supabase = await createServerSideClient();
-
     // const result = await supabase
     //     .from("todos_no_rls")
     //     .select("*")
