@@ -1,4 +1,4 @@
-// todos-no-rls 테이블과 통신할 곳
+// todos-no-rls 테이블과 통신할 곳 ( 클라이언트 사이드 )
 "use client";
 
 import { createSupabaseBrowserClient } from "@/lib/client/supabase";
