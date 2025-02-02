@@ -29,9 +29,9 @@ const AuthUI = () => {
             },
         });
     };
-
+    // 이 형식은 외워두는게 좋을듯
     const handleGithubLogin = async () => {
-        await supabase.auth.signInWithOAth({
+        await supabase.auth.signInWithOAuth({
             provider: "github",
             options: {
                 redirectTo: process.env.NEXT_PUBLIC_AUTH_REDIRECT_TO,
