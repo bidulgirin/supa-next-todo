@@ -8,8 +8,8 @@ import {
     updateTodos,
     //} from "@/apis/todos-no-rls";
 } from "@/actions/todo/todo.action";
-import { Database } from "@/types/database";
-import { useState, useEffect } from "react";
+import { Database } from "@/types/supabase";
+import { useState, useEffect, useCallback } from "react";
 
 type TodoDto = Database["public"]["Tables"]["todos_with_rls"]["Row"];
 
@@ -17,7 +17,7 @@ const useTodosController = (ownerUserId = "") => {
     const [loading, setLoading] = useState(true);
     const [todos, setTodos] = useState<TodoDto[]>([]);
 
-    const onGetTodos = async () => {
+    const onGetTodos = useCallback(async () => {
         try {
             //const resultTodos = await getTodoAction();
             const resultTodos = await getTodosByUserId(ownerUserId);
@@ -28,11 +28,11 @@ const useTodosController = (ownerUserId = "") => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [ownerUserId]);
 
     useEffect(() => {
         onGetTodos();
-    }, []);
+    }, [onGetTodos]);
 
     /*
         먼저 비어있는 row 를 만들어서 

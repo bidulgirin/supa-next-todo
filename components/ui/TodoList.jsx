@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { IoSearchOutline, IoShareSocialOutline } from "react-icons/io5";
 import { useCopyToClipboard } from "usehooks-ts";
 import TodoListItem from "./TodoListItem";
+import TodoListItemReadOnly from "./TodoListItemReadOnly";
 
 const Todolist = ({
     shardUserFullName = "",
@@ -99,14 +100,23 @@ const Todolist = ({
                 {todoListData?.length >= 1 ? (
                     <ul className="flex flex-col gap-6">
                         {(todoListData ?? []).map((todo) => {
-                            return (
-                                <TodoListItem
-                                    key={todo?.id}
-                                    todo={todo}
-                                    onUpdate={onUpdate}
-                                    onDelete={onDelete}
-                                />
-                            );
+                            if (isReadOnly) {
+                                return (
+                                    <TodoListItemReadOnly
+                                        key={todo?.id}
+                                        todo={todo}
+                                    />
+                                );
+                            } else {
+                                return (
+                                    <TodoListItem
+                                        key={todo?.id}
+                                        todo={todo}
+                                        onUpdate={onUpdate}
+                                        onDelete={onDelete}
+                                    />
+                                );
+                            }
                         })}
                     </ul>
                 ) : (
