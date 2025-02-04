@@ -10,7 +10,6 @@ interface AuthHeaderProps {
 }
 //const AuthHeader = (props: AuthHeaderProps) => {
 const AuthHeader = ({ user }: AuthHeaderProps) => {
-    console.log("user", user);
     const isLoggedIn = !!user?.email;
     const supabase = createSupabaseBrowserClient();
     const router = useRouter();

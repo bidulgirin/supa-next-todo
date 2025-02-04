@@ -10,7 +10,7 @@ const AuthUI = () => {
     //const isMount = useHydrate();
 
     const getUserInfo = async () => {
-        const result = await supabase.auth.getUser();
+        const result = await supabase.auth.getUser(); // auth 에서 user 테이블에서 꺼내옴
         console.log(result);
         if (result?.data.user) setUser(result?.data?.user);
     };

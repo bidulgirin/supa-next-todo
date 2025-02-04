@@ -17,8 +17,7 @@ export default async function RootLayout({
     children: React.ReactNode;
 }>) {
     // 유저 정보 가져오기
-    const user = await getUser();
-    console.log("user", user);
+    const user = await getUser({ serverComponent: true });
     return (
         <html lang="ko">
             <body className={inter.className}>

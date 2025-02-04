@@ -3,8 +3,8 @@ import {
     createTodos,
     deleteTodosSoft,
     getTodoAction,
-    getTodosByUserId,
     todosSearch,
+    getTodosByUserId,
     updateTodos,
     //} from "@/apis/todos-no-rls";
 } from "@/actions/todo/todo.action";
@@ -17,11 +17,9 @@ const useTodosController = (ownerUserId = "") => {
     const [loading, setLoading] = useState(true);
     const [todos, setTodos] = useState<TodoDto[]>([]);
 
-    const onGetTodos = async () => {
+    const onGetTodos = async (userId = "") => {
         try {
-            //const resultTodos = await getTodoAction();
-            const resultTodos = await getTodosByUserId(ownerUserId);
-
+            const resultTodos = await getTodosByUserId(userId);
             if (resultTodos) setTodos(resultTodos);
         } catch (error) {
             console.error(error);
@@ -31,7 +29,7 @@ const useTodosController = (ownerUserId = "") => {
     };
 
     useEffect(() => {
-        onGetTodos();
+        onGetTodos(ownerUserId);
     }, []);
 
     /*
