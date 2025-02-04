@@ -9,11 +9,12 @@ const AuthUI = () => {
     const supabase = createSupabaseBrowserClient();
     //const isMount = useHydrate();
 
-    const getUserInfo = async () => {
-        const result = await supabase.auth.getUser(); // auth 에서 user 테이블에서 꺼내옴
+    // useCallback을 사용하여 getUserInfo 함수 메모이제이션
+    const getUserInfo = useCallback(async () => {
+        const result = await supabase.auth.getUser(); // auth에서 user 정보 가져오기
         console.log(result);
         if (result?.data.user) setUser(result?.data?.user);
-    };
+    }, [supabase]); // supabase가 변경될 때만 함수 재생성
 
     const handleLogout = async () => {
         supabase.auth.signOut();
@@ -42,7 +43,7 @@ const AuthUI = () => {
 
     useEffect(() => {
         getUserInfo();
-    }, []);
+    }, [getUserInfo]);
     //if (!isMount) return null;
     return (
         <section className="w-full">
