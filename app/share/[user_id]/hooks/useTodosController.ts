@@ -8,7 +8,7 @@ import {
     updateTodos,
     //} from "@/apis/todos-no-rls";
 } from "@/actions/todo/todo.action";
-import { Database } from "@/types/database";
+import { Database } from "@/types/supabase";
 import { useState, useEffect } from "react";
 
 type TodoDto = Database["public"]["Tables"]["todos_with_rls"]["Row"];

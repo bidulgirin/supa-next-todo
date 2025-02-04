@@ -16,17 +16,17 @@ export const getTodoAction = async () => {
     return result.data;
 };
 // todolist 가져오기
-// export const getTodos = async () => {
-//     const supabase = await createServerSideClient();
-//     const result = await supabase
-//         .from("todos_with_rls")
-//         .select("*")
-//         .is("deleted_at", null)
-//         .order("id", {
-//             ascending: false,
-//         });
-//     return result.data;
-// };
+export const getTodos = async () => {
+    const supabase = await createServerSideClient();
+    const result = await supabase
+        .from("todos_with_rls")
+        .select("*")
+        .is("deleted_at", null)
+        .order("id", {
+            ascending: false,
+        });
+    return result.data;
+};
 
 // todoList 사용자 ID 로 가져오기 ( 공유하기용 )
 

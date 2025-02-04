@@ -5,11 +5,11 @@ import { useCopyToClipboard } from "usehooks-ts";
 import TodoListItem from "./TodoListItem";
 import TodoListItemReadOnly from "./TodoListItemReadOnly";
 
-const Todolist = ({
+const TodoList = ({
     shardUserFullName = "",
     ownerUserId = "",
     loading = false,
-    todoListData = [],
+    todoListData: [],
     isReadOnly = false,
     onCreate = () => {},
     onUpdate = (id, updateContent) => {},
@@ -127,4 +127,4 @@ const Todolist = ({
     );
 };
 
-export default Todolist;
+export default TodoList;
