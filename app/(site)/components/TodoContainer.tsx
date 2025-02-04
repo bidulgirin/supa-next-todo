@@ -5,12 +5,8 @@ import Todolist from "@/components/ui/TodoList";
 
 interface TodoContainerProps {
     ownerUserId?: string;
-    shardUserFullName?: string;
 }
-const TodoContainer = ({
-    ownerUserId,
-    shardUserFullName,
-}: TodoContainerProps) => {
+const TodoContainer = ({ ownerUserId }: TodoContainerProps) => {
     const {
         loading,
         todos,
@@ -23,7 +19,6 @@ const TodoContainer = ({
     return (
         <div>
             <Todolist
-                shardUserFullName={shardUserFullName}
                 ownerUserId={ownerUserId}
                 loading={loading}
                 isReadOnly={false}

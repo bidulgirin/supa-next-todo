@@ -40,7 +40,7 @@ export const getTodosByUserId = async (userId: string) => {
         .order("id", {
             ascending: false,
         });
-
+    console.log("result????", result);
     return result.data;
 };
 
@@ -75,7 +75,6 @@ export const createTodos = async (content: string) => {
         .from("todos_with_rls")
         .insert({ content })
         .select();
-
     return result.data;
 };
 // updateToDos

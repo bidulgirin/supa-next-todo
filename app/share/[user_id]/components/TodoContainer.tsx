@@ -19,14 +19,13 @@ const TodoContainer = ({
         onSearchTodos,
         onUpdateTodos,
     } = useTodosController(ownerUserId);
-
     return (
         <div>
             <Todolist
                 shardUserFullName={shardUserFullName}
                 ownerUserId={ownerUserId}
                 loading={loading}
-                isReadOnly={false}
+                isReadOnly={true}
                 todoListData={todos}
                 onCreate={() => {
                     onCreateEmptyTodos();

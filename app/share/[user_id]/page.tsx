@@ -8,7 +8,6 @@ interface sharePageProps {
     searchParams: {};
 }
 const sharePage = async (props: sharePageProps) => {
-    console.log("props", props);
     const userId = props?.params?.user_id;
     // 공유한 사람의 아이디의 프로필
     const profile = await getProfileById({ serverComponent: true, userId });
